@@ -63,3 +63,89 @@
 
 --- @class SVStateManager
 --- @field states table<string, SVPlayerState>
+
+
+
+-----------------------------
+-- InteractionState config --
+-----------------------------
+
+--- @alias stateId string
+--- @alias statebagKey string
+--- @alias metadataKey string
+--- @alias errorMessage string
+--- @alias percentage number
+
+--- @class AnimationConfig
+--- @field dict string
+--- @field clip string
+--- @field duration? number
+--- @field flag? number
+
+--- @class StateFieldsConfig
+--- @field playerState? statebagKey
+--- @field playerMetadata? metadataKey
+--- @field victimState? statebagKey
+--- @field victimMetadata? metadataKey
+
+--- @class StateAnimationConfig
+--- @field playerIn AnimationConfig
+--- @field victimIn AnimationConfig
+--- @field playerIdle AnimationConfig
+--- @field victimIdle AnimationConfig
+--- @field playerOut AnimationConfig
+--- @field victimOut AnimationConfig
+
+--- @class PropConfig
+--- @field model string
+--- @field pos vector3
+--- @field rot vector3
+
+--- @class StatePropsConfig
+--- @field playerIn PropConfig
+--- @field victimIn PropConfig
+--- @field playerIdle PropConfig
+--- @field victimIdle PropConfig
+--- @field playerOut PropConfig
+--- @field victimOut PropConfig
+
+--- @class StateDependencyConfig
+--- @field requiredPlayerState? table<stateId, errorMessage>
+--- @field requiredVictimState? table<stateId, errorMessage>
+--- @field forbiddenPlayerState? table<stateId, errorMessage>
+--- @field forbiddenVictimState? table<stateId, errorMessage>
+--- @field rewardPlayerState? table<stateId, number>
+--- @field rewardVictimState? table<stateId, number>
+--- @field removePlayerState? table<stateId, number>
+--- @field removeVictimState? table<stateId, number>
+
+--- @class RequiredItemConfig
+--- @field name string
+--- @field amount number|{min: number, max: number}
+--- @field persist percentage
+--- @field errorMessage errorMessage
+
+--- @class DisableConfig
+--- @field keys? number[]
+--- @field inventory? boolean
+--- @field radialMenu? boolean
+--- @field targeting? boolean
+--- @field emotes? boolean
+--- @field radio? boolean
+--- @field phone? boolean
+
+--- @class StateItemsConfig
+--- @field playerIn? string
+--- @field victimIn? string
+--- @field playerOut? string
+--- @field victimOut? string
+
+--- @class InteractionStateConfig
+--- @field id string
+--- @field distance number
+--- @field fields StateFieldsConfig
+--- @field items? StateItemsConfig
+--- @field props StatePropsConfig
+--- @field animations StateAnimationConfig
+--- @field dependencies StateDependencyConfig
+--- @field disable DisableConfig
