@@ -52,6 +52,8 @@
 --- @field duration number
 --- @field flag? number
 --- @field range? RangeData
+--- @field requiredStates? StateConfig[]
+--- @field notAllowedStates? StateConfig[]
 
 --- @class PropConfig
 --- @field model string

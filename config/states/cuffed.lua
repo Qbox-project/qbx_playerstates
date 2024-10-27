@@ -52,8 +52,8 @@ return {
   props = {
     {
       model = 'p_cs_cuffs_02_s',
-      pos = vector3(0.0, 0.0, 0.0),
-      rot = vector3(0.0, 0.0, 0.0),
+      pos = vec3(0.04, 0.06, 0.0),
+      rot = vec3(-85.24, 4.2, -106.6),
     },
   },
   notAllowedStates = {
