@@ -2,14 +2,16 @@
 return {
   id = 'thirst',
   label = 'Thirst',
-  fields = {
-    statebag = 'thirst',
-    metadata = 'thirst',
-  },
+  fields = { stateBag = 'thirst', metadata = 'thirst' },
   permanent = true,
   value = {
+    min = 0,
+    max = 100,
     default = 100,
-    range = {min = 0, max = 100},
+  },
+  decay = {
+    interval = 60*1000,
+    value = -2,
   },
   notification = {
     up = {
@@ -39,8 +41,8 @@ return {
       value = -10,
     },
   },
-  decay = {
-    interval = 60*1000,
-    value = -2,
+  effectData = {
+    statusInterval = 5*1000,
+    decreaseHealthRange = {min = 5, max = 10},
   },
 }

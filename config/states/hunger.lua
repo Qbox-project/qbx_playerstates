@@ -2,14 +2,16 @@
 return {
   id = 'hunger',
   label = 'Hunger',
-  fields = {
-    statebag = 'hunger',
-    metadata = 'hunger',
-  },
+  fields = { stateBag = 'hunger', metadata = 'hunger' },
   permanent = true,
+  decay = {
+    interval = 60*1000,
+    value = -2,
+  },
   value = {
+    min = 0,
+    max = 100,
     default = 100,
-    range = {min = 0, max = 100},
   },
   notification = {
     up = {
@@ -39,8 +41,8 @@ return {
       value = -10,
     },
   },
-  decay = {
-    interval = 60*1000,
-    value = -2,
+  effectData = {
+    statusInterval = 60*1000,
+    decreaseHealthRange = {min = 5, max = 10},
   },
 }

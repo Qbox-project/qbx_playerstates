@@ -1,17 +1,17 @@
 --- @type PlayerStateConfig
 return {
-  id = 'carried',
-  label = 'Carried',
-  fields = { stateBag = 'carriedBy' },
+  id = 'escort',
+  label = 'Escort',
+  fields = { stateBag = 'escorting' },
   permanent = false,
   value = {
     default = nil,
   },
   notification = {
     up = {
-      id = 'state-carried-up-notif',
-      title = 'Carried',
-      description = 'You are being carried',
+      id = 'state-escort-up-notif',
+      title = 'Escort',
+      description = 'You are escorting a player',
       duration = 2000,
       icon = 'user-friends',
       iconColor = '#4CAF50',
@@ -22,9 +22,9 @@ return {
       value = 1,
     },
     down = {
-      id = 'state-carried-down-notif',
-      title = 'Carried',
-      description = 'You are no longer being carried',
+      id = 'state-escort-down-notif',
+      title = 'Escort',
+      description = 'You are no longer escorting a player',
       duration = 2000,
       icon = 'user-large-slash',
       iconColor = '#C53030',
@@ -40,9 +40,7 @@ return {
       return value ~= nil and value
     end,
     keys = {
-      0, 7, 20, 24, 25, 26, 29, 30, 32, 33, 34, 35, 44,
-      45, 46, 47, 48, 49, 59, 74, 75, 77, 140, 141, 142,
-      144, 145, 185, 199, 244, 251, 246, 303, 323,
+      25, 59, 140, 141, 142
     },
     emotes = true,
     radio = true,
@@ -54,9 +52,9 @@ return {
       condition = function(value)
         return value ~= nil and value
       end,
-      dict = 'nm',
-      name = 'firemans_carry',
-      flag = 1,
+      dict = 'amb@code_human_wander_drinking_fat@beer@male@base',
+      name = 'static',
+      flag = 49,
     }
   },
 }

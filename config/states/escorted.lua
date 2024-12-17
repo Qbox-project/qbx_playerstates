@@ -1,17 +1,17 @@
 --- @type PlayerStateConfig
 return {
-  id = 'carried',
-  label = 'Carried',
-  fields = { stateBag = 'carriedBy' },
+  id = 'escorted',
+  label = 'Escorted',
+  fields = { stateBag = 'escortedBy' },
   permanent = false,
   value = {
     default = nil,
   },
   notification = {
     up = {
-      id = 'state-carried-up-notif',
-      title = 'Carried',
-      description = 'You are being carried',
+      id = 'state-escorted-up-notif',
+      title = 'Escorted',
+      description = 'You are being escorted',
       duration = 2000,
       icon = 'user-friends',
       iconColor = '#4CAF50',
@@ -22,9 +22,9 @@ return {
       value = 1,
     },
     down = {
-      id = 'state-carried-down-notif',
-      title = 'Carried',
-      description = 'You are no longer being carried',
+      id = 'state-escorted-down-notif',
+      title = 'Escorted',
+      description = 'You are no longer being escorted',
       duration = 2000,
       icon = 'user-large-slash',
       iconColor = '#C53030',
@@ -37,7 +37,7 @@ return {
   },
   disable = {
     condition = function(value)
-      return value ~= nil and value
+      return value
     end,
     keys = {
       0, 7, 20, 24, 25, 26, 29, 30, 32, 33, 34, 35, 44,
@@ -48,15 +48,7 @@ return {
     radio = true,
     phone = true,
     inventory = true,
-  },
-  forcedAnimations = {
-    {
-      condition = function(value)
-        return value ~= nil and value
-      end,
-      dict = 'nm',
-      name = 'firemans_carry',
-      flag = 1,
-    }
+    radialMenu = true,
+    target = true,
   },
 }
