@@ -151,10 +151,10 @@ end
 
 --- @param shouldDisable boolean
 function CLDisableManager:toggleRadio(shouldDisable)
-  if shouldDisable then
-    -- leave radio channel
-    -- exports.qbx_radio:leaveRadio()
-  end
+  -- if shouldDisable then
+  --   -- leave radio channel
+  --   -- exports.qbx_radio:leaveRadio()
+  -- end
   LocalPlayer.state.disableRadio = shouldDisable and 1 or 0
 end
 

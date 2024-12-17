@@ -41,7 +41,7 @@ end
 --- @return boolean
 function SVStateManager:addToState(src, state, value)
   if not src or not state or not value then return false end
-  if not type(src) == 'number' or not type(state) == 'string' or not type(value) == 'number' then return false end
+  if type(src) ~= 'number' or type(state) ~= 'string' or type(value) ~= 'number' then return false end
   local stateInstance = self.states[state]
   if not stateInstance then return false end
   return stateInstance:addToPlayerState(src, value)
@@ -52,7 +52,7 @@ end
 --- @return boolean
 function SVStateManager:clearState(src, state)
   if not src or not state then return false end
-  if not type(src) == 'number' or not type(state) == 'string' then return false end
+  if type(src) ~= 'number' or type(state) ~= 'string' then return false end
   local stateInstance = self.states[state]
   if not stateInstance then return false end
   return stateInstance:clearPlayerState(src)
@@ -62,7 +62,7 @@ end
 --- @return boolean
 function SVStateManager:clearAllStates(src)
   if not src then return false end
-  if not type(src) == 'number' then return false end
+  if type(src) ~= 'number' then return false end
   for _, state in pairs(self.states) do
     state:clearPlayerState(src)
   end
@@ -72,7 +72,7 @@ end
 --- @param src any
 function SVStateManager:initPlayerStates(src)
   if not src then return end
-  if not type(src) == 'number' then return end
+  if type(src) ~= 'number' then return end
   for _, state in pairs(self.states) do
     state:initPlayerState(src)
   end
@@ -81,7 +81,7 @@ end
 --- @param src any
 function SVStateManager:resetPlayerStates(src)
   if not src then return end
-  if not type(src) == 'number' then return end
+  if type(src) ~= 'number' then return end
   for _, state in pairs(self.states) do
     state:destroyPlayerState(src)
   end
@@ -100,7 +100,7 @@ end
 --- @return boolean
 function SVStateManager:setState(src, state, value)
   if not src or not state then return false end
-  if not type(src) == 'number' or not type(state) == 'string' then return false end
+  if type(src) ~= 'number' or type(state) ~= 'string' then return false end
   local stateInstance = self.states[state]
   if not stateInstance then return false end
   return stateInstance:setPlayerState(src, value)
