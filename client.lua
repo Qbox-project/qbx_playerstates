@@ -21,10 +21,11 @@ end
 
 ---Releases a boolean state. Runs its onRelease function if this is the last call to release the state and the release function exists in config.
 ---@param name string
+---@param force? boolean if true, releases the state regardless of the number of locks on it
 ---@return boolean lastReleaser true if the state is fully released after this function
-local function releaseState(name)
-    if not states[name] then states[name] = 0 end
-    if states[name] <= 1 then
+local function releaseState(name, force)
+    if not states[name] then return true end
+    if states[name] <= 1 or force then
         states[name] = nil
         if config.states[name]?.onRelease() then
             config.states[name].onRelease()
