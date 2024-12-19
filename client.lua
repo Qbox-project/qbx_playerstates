@@ -24,7 +24,7 @@ end
 ---@param force? boolean if true, releases the state regardless of the number of locks on it
 ---@return boolean lastReleaser true if the state is fully released after this function
 local function releaseState(name, force)
-    if not states[name] then return true end
+    if not states[name] then return false end
     if states[name] <= 1 or force then
         states[name] = nil
         if config.states[name]?.onRelease() then
