@@ -27,7 +27,7 @@ local function releaseState(name, force)
     if not states[name] then return false end
     if states[name] <= 1 or force then
         states[name] = nil
-        if config.states[name]?.onRelease() then
+        if config.states[name]?.onRelease then
             config.states[name].onRelease()
         end
         return true
